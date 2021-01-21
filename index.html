@@ -5,30 +5,62 @@
 <head>
 	<title>Pokedex</title>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="./estilo.css">
 	<meta charset="utf-8">
-	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
 
 <body>
-	<h1>Pokedex API</h1>
+	<header>
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+			</div>
+		</div>
+	</header>
+	<div class="selectPoke">
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="poke1">Select Pokemon 1</label>
+				<select id="poke1" class="form-control">
 
-	<form>
-		<input id="pokemonName" class="form-control"placeholder="Enter Pokemon name">
-		<button class="submit btn btn-info">Submit</button>
-	</form>
+				</select>
+			  </div>
+			  <div class="form-group col-md-6">
+				<label for="poke2">Select Pokemon 2</label>
+				<select id="poke2" class="form-control">
+
+				</select>
+			  </div>
+		</div>
+		<div class="containerBtn">
+			<button class="submit1 btn btn-warning">Versus</button>
+		</div>
+	</div>
+	
+
+
 
 	<div class="card">
-		<h2>Pokemon: </h2><span><h2 class="name"></h2></span>
-		<h4>Tipo: </h2><span><h2 class="type"></h2></span>
-        <p>Descripción: </p><span><p class="description"></p></span> 
-        <div class="photo">
-            <!-- aca va la fotito -->
-        </div>
+		<div class="row">
+			<div class="col-6">
+				<div class="photo1">
+					<!-- aca va la fotito -->
+				</div>
+				<h4>Tipo: </h4><span><h4 class="type1"></h4></span>
+				<p>Descripción: </p><span><p class="description1"></p></span> 
+				<div id="chartContainer1" style="height: 140px; width: 100%;"></div>
+			</div>
+			<div class="col-6">
+				<div class="photo2">
+					<!-- aca va la fotito -->
+				</div>
+				<h4>Tipo: </h4><span><h4 class="type2"></h4></span>
+				<p>Descripción: </p><span><p class="description2"></p></span> 
+				<div id="chartContainer2" style="height: 140px; width: 100%;"></div>
+				
+			</div>
+		</div>
     </div>
-
-    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
 
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>

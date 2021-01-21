@@ -1,27 +1,113 @@
-$('.submit').click( function searchPokemon (event){
+ for (let i = 1; i < 200; i++) {
+    $.ajax({
+        type: 'GET',
+        url: 'http://pokeapi.co/api/v2/pokemon/' + i,
+        dataType: "json",
+        crossDomain : true,
+        success:
+        function(response){
+            $('#poke1').append('<option>' + response.name.toUpperCase() + '</option>');
+            $('#poke2').append('<option>' + response.name.toUpperCase() + '</option>')
+        },
+     })
+ }
+ 
+ 
+ 
+ $('.submit1').click( function searchPokemon (event){
 	event.preventDefault();
-	$('.name').empty();
-	$('.type').empty();
-    $('.description').empty();
-    $('.photo').empty();
+	$('.name1').empty();
+	$('.type1').empty();
+    $('.description1').empty();
+    $('.photo1').empty();
+    $('.chartContainer1').empty();
+    let cuenta = 0;
+    let chart;
 
-	var pokemon = $('input').val();
+
+    var pokemon = $('#poke1').val().toLowerCase();
+
+    if(pokemon == 'Selecciona un Pokemon...'){
+        chart = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            title:{
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 60,
+                //innerRadius: 60,
+                indexLabelFontSize: 17,
+                indexLabel: "{label} : {y}",
+                dataPoints: [
+
+                ]
+            }]
+        });
+        chart.render();
+    }
 		$.ajax({
 			type: 'GET',
             url: 'http://pokeapi.co/api/v2/pokemon/' + pokemon,
-            
+            dataType: "json",
+            crossDomain : true,
+
 			success: function (response) {
 				console.log(response);
-				$('.name').append('<span>' + response.name + '</span>');
-				// $('.description').text(response.name);
+				$('.name1').append('<span>' + response.name.toUpperCase() + '</span>');
 				
 				response.types.forEach(function (types) {
-					var pokemonType = types.type.name
-					$('.type').append('<span>' + pokemonType + '  </span>');		
+                    var pokemonType = types.type.name
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://pokeapi.co/api/v2/type/' + pokemonType,
+                        dataType: "json",
+                        crossDomain : true,
+                        success: function (response){
+                            switch (response.names[4].name) {
+                                case 'Eléctrico':
+                                    $('.type1').append('<span style="background-color: yellow;">' + response.names[4].name + '  </span>');	
+                                    break;
+                                case 'Fuego':
+                                    $('.type1').append('<span style="background-color: red;">' + response.names[4].name + '  </span>');	
+                                    break;
+                                default:
+                                    $('.type1').append('<span>' + response.names[4].name + '  </span>');
+                                    break;
+                            };
+                        }
+
+                    })
+                    
+						
                     });
                 
-                $('.photo').append('<img src="'+ response.sprites.front_default +'" alt="">')
-			},
+                $('.photo1').append('<img src="'+ response.sprites.front_default +'" alt="">');
+                
+                chart = new CanvasJS.Chart("chartContainer1", {
+                    animationEnabled: true,
+                    title:{
+                    },
+                    data: [{
+                        type: "doughnut",
+                        startAngle: 60,
+                        innerRadius: 20,
+                        indexLabelFontSize: 17,
+                        indexLabel: "{label} : {y}",
+                        dataPoints: [
+
+                            { y: response.stats[0].base_stat, label: response.stats[0].stat.name },
+                            { y: response.stats[1].base_stat, label: response.stats[1].stat.name },
+                            { y: response.stats[2].base_stat, label: response.stats[2].stat.name },
+                            { y: response.stats[3].base_stat, label: response.stats[3].stat.name },
+                            { y: response.stats[4].base_stat, label: response.stats[4].stat.name },
+                        ]
+                    }]
+                });
+                chart.render();
+                
+            },
+            
+
 			error: function error () {
 				//si falla la baina
 			}
@@ -32,13 +118,24 @@ $('.submit').click( function searchPokemon (event){
 			
 			type: 'GET',
 			
-			url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
+            url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
+            
+            dataType: "json",
+            crossDomain : true,
 			
 			success: function (response) {
 
-				console.log(response);
-				
-				$('.description').append('<span>' + response.flavor_text_entries[27].flavor_text + '</span>');
+                console.log(response);
+                
+                for (let i = 0; i < 100; i++) {
+                    if (response.flavor_text_entries[i].language.name == 'es') {
+                        $('.description1').append('<span>' + response.flavor_text_entries[i].flavor_text + '</span>');
+                        cuenta++;
+                    };
+                    if (cuenta  == 1) {
+                        break;
+                    };
+                };
             },
             
             error: function error () {
@@ -47,34 +144,134 @@ $('.submit').click( function searchPokemon (event){
 			
 		})
 
-}) // end submit searchPokemon
+}); // end submit searchPokemon
 
-//basura de grafico
-window.onload = function () {
 
-    var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        title:{
-            text: "Email Categories",
-            horizontalAlign: "left"
-        },
-        data: [{
-            type: "doughnut",
-            startAngle: 60,
-            //innerRadius: 60,
-            indexLabelFontSize: 17,
-            indexLabel: "{label} - #percent%",
-            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-            dataPoints: [
-                { y: 67, label: "Inbox" },
-                { y: 28, label: "Archives" },
-                { y: 10, label: "Labels" },
-                { y: 7, label: "Drafts"},
-                { y: 15, label: "Trash"},
-                { y: 6, label: "Spam"}
-            ]
-        }]
-    });
-    chart.render();
+$('.submit1').click( function searchPokemon (event){
+	event.preventDefault();
+	$('.name2').empty();
+	$('.type2').empty();
+    $('.description2').empty();
+    $('.photo2').empty();
+    $('.chartContainer2').empty();
+    let chart;
+    let cuenta = 0;
+
+    var pokemon = $('#poke2').val().toLowerCase();
     
+    if(pokemon == 'Selecciona un Pokemon...'){
+        chart = new CanvasJS.Chart("chartContainer1", {
+            animationEnabled: true,
+            title:{
+            },
+            data: [{
+                type: "doughnut",
+                startAngle: 60,
+                innerRadius: 20,
+                indexLabelFontSize: 17,
+                indexLabel: "{label} : {y}",
+                dataPoints: [
+
+                ]
+            }]
+        });
+        chart.render();
     }
+		$.ajax({
+			type: 'GET',
+            url: 'http://pokeapi.co/api/v2/pokemon/' + pokemon,
+            dataType: "json",
+            crossDomain : true,
+
+			success: function (response) {
+				console.log(response);
+				$('.name2').append('<span>' + response.name.toUpperCase() + '</span>');
+				
+				response.types.forEach(function (types) {
+                    var pokemonType = types.type.name
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://pokeapi.co/api/v2/type/' + pokemonType,
+                        dataType: "json",
+                        crossDomain : true,
+                        success: function (response){
+                            switch (response.names[4].name) {
+                                case 'Eléctrico':
+                                    $('.type2').append('<span style="background-color: yellow;">' + response.names[4].name + '  </span>');	
+                                    break;
+                                case 'Fuego':
+                                    $('.type2').append('<span style="background-color: red;">' + response.names[4].name + '  </span>');	
+                                    break;
+                                default:
+                                    $('.type2').append('<span>' + response.names[4].name + '  </span>');
+                                    break;
+                            };
+                        }
+
+                    })
+						
+                    });
+                
+                $('.photo2').append('<img src="'+ response.sprites.front_default +'" alt="">');
+                
+                chart = new CanvasJS.Chart("chartContainer2", {
+                    animationEnabled: true,
+                    title:{
+                    },
+                    data: [{
+                        type: "doughnut",
+                        startAngle: 60,
+                        innerRadius: 20,
+                        indexLabelFontSize: 17,
+                        indexLabel: "{label} : {y}",
+                        dataPoints: [
+
+                            { y: response.stats[0].base_stat, label: response.stats[0].stat.name },
+                            { y: response.stats[1].base_stat, label: response.stats[1].stat.name },
+                            { y: response.stats[2].base_stat, label: response.stats[2].stat.name },
+                            { y: response.stats[3].base_stat, label: response.stats[3].stat.name },
+                            { y: response.stats[4].base_stat, label: response.stats[4].stat.name },
+                        ]
+                    }]
+                });
+                chart.render();
+                
+            },
+            
+
+			error: function error () {
+			}
+			
+		})
+
+		$.ajax({
+			
+			type: 'GET',
+			
+            url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
+            
+            dataType: "json",
+            crossDomain : true,
+			
+			success: function (response) {
+
+                console.log(response);
+                
+                for (let i = 0; i < 100; i++) {
+                    if (response.flavor_text_entries[i].language.name == 'es') {
+                        $('.description2').append('<span>' + response.flavor_text_entries[i].flavor_text + '</span>');
+                        cuenta++;
+                    };
+                    if (cuenta  == 1) {
+                        break;
+                    };
+                };
+            },
+            
+            error: function error () {
+				//si falla la baina
+			}
+			
+		})
+
+}); // end submit searchPokemon
