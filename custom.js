@@ -64,12 +64,7 @@
                         crossDomain : true,
                         success: function (response){
                             switch (response.names[4].name) {
-                                case 'Eléctrico':
-                                    $('.type1').append('<span style="background-color: yellow;">' + response.names[4].name + '  </span>');	
-                                    break;
-                                case 'Fuego':
-                                    $('.type1').append('<span style="background-color: red;">' + response.names[4].name + '  </span>');	
-                                    break;
+                                
                                 default:
                                     $('.type1').append('<span>' + response.names[4].name + '  </span>');
                                     break;
@@ -84,6 +79,7 @@
                 $('.photo1').append('<img src="'+ response.sprites.front_default +'" alt="">');
                 
                 chart = new CanvasJS.Chart("chartContainer1", {
+                    backgroundColor: "rgba(255, 255, 255, .0)",
                     animationEnabled: true,
                     title:{
                     },
@@ -196,12 +192,7 @@ $('.submit1').click( function searchPokemon (event){
                         crossDomain : true,
                         success: function (response){
                             switch (response.names[4].name) {
-                                case 'Eléctrico':
-                                    $('.type2').append('<span style="background-color: yellow;">' + response.names[4].name + '  </span>');	
-                                    break;
-                                case 'Fuego':
-                                    $('.type2').append('<span style="background-color: red;">' + response.names[4].name + '  </span>');	
-                                    break;
+                                
                                 default:
                                     $('.type2').append('<span>' + response.names[4].name + '  </span>');
                                     break;
@@ -215,6 +206,7 @@ $('.submit1').click( function searchPokemon (event){
                 $('.photo2').append('<img src="'+ response.sprites.front_default +'" alt="">');
                 
                 chart = new CanvasJS.Chart("chartContainer2", {
+                    backgroundColor: "rgba(255, 255, 255, .0)",
                     animationEnabled: true,
                     title:{
                     },

@@ -17,50 +17,61 @@
 			</div>
 		</div>
 	</header>
-	<div class="selectPoke">
-		<div class="form-row">
-			<div class="form-group col-md-6">
-				<label for="poke1">Select Pokemon 1</label>
-				<select id="poke1" class="form-control">
-
-				</select>
-			  </div>
-			  <div class="form-group col-md-6">
-				<label for="poke2">Select Pokemon 2</label>
-				<select id="poke2" class="form-control">
-
-				</select>
-			  </div>
+	<div class="row">
+		<div class="col-2 menu">
+			<a class="btn btn-warning" href="">Pokedex</a>
+			<a class="btn btn-warning" href="">Vs</a>
+			<a class="btn btn-warning" href="">Tipos</a>
 		</div>
-		<div class="containerBtn">
-			<button class="submit1 btn btn-warning">Versus</button>
+		<div class="col-10">
+			<div class="selectPoke">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<label for="poke1">Select Pokemon 1</label>
+						<select id="poke1" class="form-control">
+		
+						</select>
+					  </div>
+					  <div class="form-group col-md-6">
+						<label for="poke2">Select Pokemon 2</label>
+						<select id="poke2" class="form-control">
+		
+						</select>
+					  </div>
+				</div>
+				<div class="containerBtn">
+					<button class="submit1 btn btn-warning">Versus</button>
+				</div>
+			</div>
+			
+		
+		
+		
+			<div class="card">
+				<div class="row">
+					<div class="col-6">
+						<div class="photo1">
+							<!-- aca va la fotito -->
+						</div>
+						<h4>Tipo: </h4><span><h4 class="type1"></h4></span>
+						<p>Descripción: </p><span><p class="description1"></p></span> 
+						<div id="chartContainer1" style="height: 140px; width: 100%;"></div>
+					</div>
+					<div class="col-6">
+						<div class="photo2">
+							<!-- aca va la fotito -->
+						</div>
+						<h4>Tipo: </h4><span><h4 class="type2"></h4></span>
+						<p>Descripción: </p><span><p class="description2"></p></span> 
+						<div id="chartContainer2" style="height: 140px; width: 100%;"></div>
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	
-
-
-
-	<div class="card">
-		<div class="row">
-			<div class="col-6">
-				<div class="photo1">
-					<!-- aca va la fotito -->
-				</div>
-				<h4>Tipo: </h4><span><h4 class="type1"></h4></span>
-				<p>Descripción: </p><span><p class="description1"></p></span> 
-				<div id="chartContainer1" style="height: 140px; width: 100%;"></div>
-			</div>
-			<div class="col-6">
-				<div class="photo2">
-					<!-- aca va la fotito -->
-				</div>
-				<h4>Tipo: </h4><span><h4 class="type2"></h4></span>
-				<p>Descripción: </p><span><p class="description2"></p></span> 
-				<div id="chartContainer2" style="height: 140px; width: 100%;"></div>
-				
-			</div>
-		</div>
-    </div>
+	
 
 
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
