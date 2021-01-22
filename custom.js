@@ -27,7 +27,7 @@
     var pokemon = $('#poke1').val().toLowerCase();
 		$.ajax({
 			type: 'GET',
-            url: 'http://pokeapi.co/api/v2/pokemon/' + pokemon,
+            url: '//pokeapi.co/api/v2/pokemon/' + pokemon,
 
 			success: function (response) {
 				console.log(response);
@@ -37,7 +37,7 @@
 
                     $.ajax({
                         type: 'GET',
-                        url: 'https://pokeapi.co/api/v2/type/' + pokemonType,
+                        url: '//pokeapi.co/api/v2/type/' + pokemonType,
 
                         success: function (response){
                             switch (response.names[4].name) {
@@ -89,7 +89,7 @@
 
 		$.ajax({
 			type: 'GET',
-            url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
+            url: '//pokeapi.co/api/v2/pokemon-species/' + pokemon,
 			
 			success: function (response) {
 
@@ -127,7 +127,7 @@ $('.submit1').click( function searchPokemon (event){
     var pokemon = $('#poke2').val().toLowerCase();
 		$.ajax({
 			type: 'GET',
-            url: 'http://pokeapi.co/api/v2/pokemon/' + pokemon,
+            url: '//pokeapi.co/api/v2/pokemon/' + pokemon,
 
 			success: function (response) {
 				console.log(response);
@@ -135,7 +135,7 @@ $('.submit1').click( function searchPokemon (event){
                     var pokemonType = types.type.name
                     $.ajax({
                         type: 'GET',
-                        url: 'https://pokeapi.co/api/v2/type/' + pokemonType,
+                        url: '//pokeapi.co/api/v2/type/' + pokemonType,
                         success: function (response){
                             switch (response.names[4].name) {
                                 
@@ -186,7 +186,7 @@ $('.submit1').click( function searchPokemon (event){
 			
 			type: 'GET',
 			
-            url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
+            url: '//pokeapi.co/api/v2/pokemon-species/' + pokemon,
             
 			
 			success: function (response) {
