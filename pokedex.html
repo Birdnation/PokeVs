@@ -18,28 +18,20 @@
 	</header>
 	<div class="row">
 		<div class="col-3 menu">
-			<a class="btn btn-warning" href="pokedex.html">Pokedex</a>
+			<a class="btn btn-warning" href="pokedex.html">Pokedex </a>
 			<a class="btn btn-warning" href="index.html">Vs</a>
 			<a class="btn btn-warning" href="type.html">Tipos</a>
-		</div>
+        </div>
+        
 		<div class="col-8">
 			<div class="selectPoke">
-				<div class="form-row">
+				<div class="form-inline justify-content-center">
 					<div class="form-group col-md-6">
-						<label for="poke1">Select Pokemon 1</label>
-						<select id="poke1" class="form-control">
-		
-						</select>
-					  </div>
-					  <div class="form-group col-md-6">
-						<label for="poke2">Select Pokemon 2</label>
-						<select id="poke2" class="form-control">
-		
-						</select>
-					  </div>
-				</div>
-				<div class="containerBtn">
-					<button class="submit1 btn btn-warning">Versus</button>
+                        <input type="text" class="form-control" placeholder="Nombre de Pokémon" id="pokemon">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button id="search" type="button" class="btn btn-warning">Buscar</button>
+                    </div>
 				</div>
 			</div>
 			
@@ -47,25 +39,16 @@
 		
 		
 			<div class="card">
-				<div class="row">
-					<div class="col-6">
-						<div class="photo1">
-							<!-- aca va la fotito -->
-						</div>
-						<span><h4 class="type1"></h4></span>
-						<p>Descripción: </p><span><p class="description1"></p></span> 
-						<div id="chartContainer1" style="height: 140px; width: 100%;"></div>
-					</div>
-					<div class="col-6">
-						<div class="photo2">
-							<!-- aca va la fotito -->
-						</div>
-						<span><h4 class="type2"></h4></span>
-						<p>Descripción: </p><span><p class="description2"></p></span> 
-						<div id="chartContainer2" style="height: 140px; width: 100%;"></div>
-						
-					</div>
-				</div>
+                <h1 class="nombre"></h1>
+				<div id="imagenGrande" class="row">
+                </div>
+                <div id="description"></div>
+                
+                <div class="row" id="imgPeke">
+                    <div class="col-6" id="imgPeke1"></div>
+                    <div class="col-6" id="imgPeke2"></div>
+                </div>
+
 			</div>
 		</div>
 	</div>
@@ -76,7 +59,7 @@
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="./custom.js"></script>
+    <script src="./pokedex.js"></script>
 </body>
 
 </html>

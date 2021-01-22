@@ -2,8 +2,6 @@
     $.ajax({
         type: 'GET',
         url: '//pokeapi.co/api/v2/pokemon/' + i,
-        dataType: "json",
-        crossDomain : true,
         success:
         function(response){
             $('#poke1').append('<option>' + response.name.toUpperCase() + '</option>');
@@ -35,23 +33,64 @@
 
                     var pokemonType = types.type.name
 
-                    $.ajax({
-                        type: 'GET',
-                        url: '//pokeapi.co/api/v2/type/' + pokemonType,
-
-                        success: function (response){
-                            switch (response.names[4].name) {
-                                
-                                default:
-                                    $('.type1').append('<span>' + response.names[4].name + '  </span>');
-                                    break;
-                            };
-                        }
-
-                    })
-                    
-						
-                    });
+                    switch (pokemonType) {
+                        case 'fire':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/fire_es.png" alt="">`);
+                            break;
+                        case 'bug':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/bug_es.png" alt="">`);
+                            break; 
+                        case 'dark':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/dark_es.png" alt="">`);
+                            break;  
+                        case 'dragon':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/dragon_es.png" alt="">`);
+                            break;
+                        case 'electric':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/electric_es.png" alt="">`);
+                            break;
+                        case 'fairy':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/fairy_es.png" alt="">`);
+                            break;
+                        case 'fighting':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/fighting_es.png" alt="">`);
+                            break;
+                        case 'flying':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/flying_es.png" alt="">`);
+                            break;
+                        case 'ghost':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/ghost_es.png" alt="">`);
+                            break;
+                        case 'grass':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/grass_es.png" alt="">`);
+                            break;
+                        case 'ground':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/ground_es.png" alt="">`);
+                            break;
+                        case 'ice':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/ice_es.png" alt="">`);
+                            break;
+                        case 'normal':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/normal_es.png" alt="">`);
+                            break;
+                        case 'poison':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/poison_es.png" alt="">`);
+                            break;
+                        case 'psychic':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/psychic_es.png" alt="">`);
+                            break;
+                        case 'rock':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/rock_es.png" alt="">`);
+                            break;
+                        case 'steel':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/steel_es.png" alt="">`);
+                            break;
+                        case 'water':
+                            $('.type1').append(`<img src="./asset/img/TypePoke/water_es.png" alt="">`);
+                            break;
+                    };
+	
+                });
                 
                 $('.photo1').append('<img src="'+ response.sprites.front_default +'" alt="">');
                 
@@ -68,11 +107,12 @@
                         indexLabel: "{label} : {y}",
                         dataPoints: [
 
-                            { y: response.stats[0].base_stat, label: response.stats[0].stat.name },
-                            { y: response.stats[1].base_stat, label: response.stats[1].stat.name },
-                            { y: response.stats[2].base_stat, label: response.stats[2].stat.name },
-                            { y: response.stats[3].base_stat, label: response.stats[3].stat.name },
-                            { y: response.stats[4].base_stat, label: response.stats[4].stat.name },
+                            { y: response.stats[0].base_stat, label: 'Vida' },
+                            { y: response.stats[1].base_stat, label: 'Ataque' },
+                            { y: response.stats[2].base_stat, label: 'Defensa' },
+                            { y: response.stats[3].base_stat, label: 'Ataque especial' },
+                            { y: response.stats[4].base_stat, label: 'Defensa especial' },
+                            { y: response.stats[5].base_stat, label: 'Velocidad' }
                         ]
                     }]
                 });
@@ -133,19 +173,63 @@ $('.submit1').click( function searchPokemon (event){
 				console.log(response);
 				response.types.forEach(function (types) {
                     var pokemonType = types.type.name
-                    $.ajax({
-                        type: 'GET',
-                        url: '//pokeapi.co/api/v2/type/' + pokemonType,
-                        success: function (response){
-                            switch (response.names[4].name) {
-                                
-                                default:
-                                    $('.type2').append('<span>' + response.names[4].name + '  </span>');
-                                    break;
-                            };
-                        }
-
-                    })
+                    
+                    switch (pokemonType) {
+                        case 'fire':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/fire_es.png" alt="">`);
+                            break;
+                        case 'bug':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/bug_es.png" alt="">`);
+                            break; 
+                        case 'dark':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/dark_es.png" alt="">`);
+                            break;  
+                        case 'dragon':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/dragon_es.png" alt="">`);
+                            break;
+                        case 'electric':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/electric_es.png" alt="">`);
+                            break;
+                        case 'fairy':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/fairy_es.png" alt="">`);
+                            break;
+                        case 'fighting':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/fighting_es.png" alt="">`);
+                            break;
+                        case 'flying':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/flying_es.png" alt="">`);
+                            break;
+                        case 'ghost':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/ghost_es.png" alt="">`);
+                            break;
+                        case 'grass':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/grass_es.png" alt="">`);
+                            break;
+                        case 'ground':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/ground_es.png" alt="">`);
+                            break;
+                        case 'ice':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/ice_es.png" alt="">`);
+                            break;
+                        case 'normal':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/normal_es.png" alt="">`);
+                            break;
+                        case 'poison':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/poison_es.png" alt="">`);
+                            break;
+                        case 'psychic':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/psychic_es.png" alt="">`);
+                            break;
+                        case 'rock':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/rock_es.png" alt="">`);
+                            break;
+                        case 'steel':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/steel_es.png" alt="">`);
+                            break;
+                        case 'water':
+                            $('.type2').append(`<img src="./asset/img/TypePoke/water_es.png" alt="">`);
+                            break;
+                        };
 						
                     });
                 
@@ -164,11 +248,12 @@ $('.submit1').click( function searchPokemon (event){
                         indexLabel: "{label} : {y}",
                         dataPoints: [
 
-                            { y: response.stats[0].base_stat, label: response.stats[0].stat.name },
-                            { y: response.stats[1].base_stat, label: response.stats[1].stat.name },
-                            { y: response.stats[2].base_stat, label: response.stats[2].stat.name },
-                            { y: response.stats[3].base_stat, label: response.stats[3].stat.name },
-                            { y: response.stats[4].base_stat, label: response.stats[4].stat.name },
+                            { y: response.stats[0].base_stat, label: 'Vida' },
+                            { y: response.stats[1].base_stat, label: 'Ataque' },
+                            { y: response.stats[2].base_stat, label: 'Defensa' },
+                            { y: response.stats[3].base_stat, label: 'Ataque especial' },
+                            { y: response.stats[4].base_stat, label: 'Defensa especial' },
+                            { y: response.stats[5].base_stat, label: 'Velocidad' }
                         ]
                     }]
                 });
