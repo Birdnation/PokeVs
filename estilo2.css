@@ -1,0 +1,54 @@
+/* CSS POKEDEX */
+.pokedex {
+    /*background: tomato;*/
+    background-image: url('./asset/img/fondopokedex2.png');
+    background-size: cover;
+    width: 80%;
+    height: 600px;
+    border-radius: 20px;
+}
+
+.pantallas {
+    height: 80%;
+}
+
+.imagen-pantalla {
+    background: white;
+    width: 40%;
+    height: 250px;
+    border-radius: 20px;
+    border: solid rgb(75, 74, 74) 15px;
+}
+
+.imagen-pantalla img{
+    width: 100%;
+    height: auto;
+  }
+  @supports(object-fit: cover){
+      .imagen-pantalla img{
+        height: 100%;
+        object-fit: scale-down;
+        object-position: center center;
+      }
+  }
+
+
+.info-pantalla {
+    background: #7cef4d;
+    width: 40%;
+    height: 250px;
+    border-radius: 20px;
+    border: solid rgb(75, 74, 74) 15px;
+}
+.buscador {
+    width: 50%;
+    height: 20%;
+}
+button {
+    width: 50%;
+}
+label {
+    width: 50%;
+}
+
+/* CIERRE CSS POKEDEX */

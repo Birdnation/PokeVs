@@ -4,7 +4,8 @@
 <head>
 	<title>Pokedex</title>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="./estilo.css">
+    <link rel="stylesheet" type="text/css" href="./estilo.css">
+    <link rel="stylesheet" type="text/css" href="./estilo2.css">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 </head>
@@ -23,33 +24,24 @@
 			<a class="btn btn-warning" href="type.html">Tipos</a>
         </div>
         
-		<div class="col-8">
-			<div class="selectPoke">
-				<div class="form-inline justify-content-center">
-					<div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="Nombre de Pokémon" id="pokemon">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <button id="search" type="button" class="btn btn-warning">Buscar</button>
-                    </div>
-				</div>
-			</div>
-			
-		
-		
-		
-			<div class="card">
-                <h1 class="nombre"></h1>
-				<div id="imagenGrande" class="row">
+		<div class="col-9">
+            <div class="container pokedex d-flex flex-column j">
+                <div class="pantallas mt-5 pt-5 d-flex justify-content-around align-items-center">
+                    <div id="imagenPokemon" class="imagen-pantalla d-flex justify-content-center align-items-center"><!--aqui va la imagen --></div>
+                    <div id="infoPokemon" class="info-pantalla justify-content-center align-items-center"><!-- aqui va la info--></div>
                 </div>
-                <div id="description"></div>
-                
-                <div class="row" id="imgPeke">
-                    <div class="col-6" id="imgPeke1"></div>
-                    <div class="col-6" id="imgPeke2"></div>
+                <div class="buscador align-self-center">
+                    <form class="d-flex buscador2 d-flex flex-row ">
+                        <label class="bg-warning border border-info rounded-pill text-center p-1 mx-2" for="pokemon">Elige a tu POKEMON </label>
+                        <select id="pokemonElegido" class="form-control" required="required">
+                            <!-- aqui va el input -->
+                        </select>
+                        
+                        <button class="btn btn-info rounded-pill border border-warning mx-2" type="submit" id="buscar">Buscar</button> 
+                    </form>
                 </div>
-
-			</div>
+            
+            </div>
 		</div>
 	</div>
 	
