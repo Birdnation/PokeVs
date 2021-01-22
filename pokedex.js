@@ -23,7 +23,7 @@ $(document).ready(function () {
     for (let i = 1; i<152; i++) {
         $.ajax({
             type: "GET",
-            url: "http://pokeapi.co/api/v2/pokemon/" + i,
+            url: "//pokeapi.co/api/v2/pokemon/" + i,
             dataType: "json",
             crossDomain: true,
             success: function (response) {
@@ -42,7 +42,7 @@ $(document).ready(function () {
         $('#infoPokemon').empty();
         $.ajax({
             type: "GET",
-            url: "http://pokeapi.co/api/v2/pokemon/" + pokemon,
+            url: "//pokeapi.co/api/v2/pokemon/" + pokemon,
             dataType: "json",
             success: function (response) {
                 $('#imagenPokemon').append('<img src="' + response.sprites.other.dream_world.front_default + '" alt="">');
