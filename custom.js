@@ -1,7 +1,7 @@
  for (let i = 1; i < 200; i++) {
     $.ajax({
         type: 'GET',
-        url: 'http://pokeapi.co/api/v2/pokemon/' + i,
+        url: '//pokeapi.co/api/v2/pokemon/' + i,
         dataType: "json",
         crossDomain : true,
         success:
