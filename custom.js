@@ -16,7 +16,6 @@
  
  $('.submit1').click( function searchPokemon (event){
 	event.preventDefault();
-	$('.name1').empty();
 	$('.type1').empty();
     $('.description1').empty();
     $('.photo1').empty();
@@ -26,42 +25,20 @@
 
 
     var pokemon = $('#poke1').val().toLowerCase();
-
-    if(pokemon == 'Selecciona un Pokemon...'){
-        chart = new CanvasJS.Chart("chartContainer1", {
-            animationEnabled: true,
-            title:{
-            },
-            data: [{
-                type: "doughnut",
-                startAngle: 60,
-                //innerRadius: 60,
-                indexLabelFontSize: 17,
-                indexLabel: "{label} : {y}",
-                dataPoints: [
-
-                ]
-            }]
-        });
-        chart.render();
-    }
 		$.ajax({
 			type: 'GET',
             url: 'http://pokeapi.co/api/v2/pokemon/' + pokemon,
-            dataType: "json",
-            crossDomain : true,
 
 			success: function (response) {
 				console.log(response);
-				$('.name1').append('<span>' + response.name.toUpperCase() + '</span>');
-				
 				response.types.forEach(function (types) {
+
                     var pokemonType = types.type.name
+
                     $.ajax({
                         type: 'GET',
                         url: 'https://pokeapi.co/api/v2/type/' + pokemonType,
-                        dataType: "json",
-                        crossDomain : true,
+
                         success: function (response){
                             switch (response.names[4].name) {
                                 
@@ -111,13 +88,8 @@
 		})
 
 		$.ajax({
-			
 			type: 'GET',
-			
             url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
-            
-            dataType: "json",
-            crossDomain : true,
 			
 			success: function (response) {
 
@@ -145,7 +117,6 @@
 
 $('.submit1').click( function searchPokemon (event){
 	event.preventDefault();
-	$('.name2').empty();
 	$('.type2').empty();
     $('.description2').empty();
     $('.photo2').empty();
@@ -154,42 +125,17 @@ $('.submit1').click( function searchPokemon (event){
     let cuenta = 0;
 
     var pokemon = $('#poke2').val().toLowerCase();
-    
-    if(pokemon == 'Selecciona un Pokemon...'){
-        chart = new CanvasJS.Chart("chartContainer1", {
-            animationEnabled: true,
-            title:{
-            },
-            data: [{
-                type: "doughnut",
-                startAngle: 60,
-                innerRadius: 20,
-                indexLabelFontSize: 17,
-                indexLabel: "{label} : {y}",
-                dataPoints: [
-
-                ]
-            }]
-        });
-        chart.render();
-    }
 		$.ajax({
 			type: 'GET',
             url: 'http://pokeapi.co/api/v2/pokemon/' + pokemon,
-            dataType: "json",
-            crossDomain : true,
 
 			success: function (response) {
 				console.log(response);
-				$('.name2').append('<span>' + response.name.toUpperCase() + '</span>');
-				
 				response.types.forEach(function (types) {
                     var pokemonType = types.type.name
                     $.ajax({
                         type: 'GET',
                         url: 'https://pokeapi.co/api/v2/type/' + pokemonType,
-                        dataType: "json",
-                        crossDomain : true,
                         success: function (response){
                             switch (response.names[4].name) {
                                 
@@ -242,8 +188,6 @@ $('.submit1').click( function searchPokemon (event){
 			
             url: 'http://pokeapi.co/api/v2/pokemon-species/' + pokemon,
             
-            dataType: "json",
-            crossDomain : true,
 			
 			success: function (response) {
 
