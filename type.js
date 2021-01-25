@@ -41,7 +41,8 @@ $('select').on('change',(e) => {
                                 <div class="photo1">
                                     <img src="${response.sprites.other.dream_world.front_default}" alt="">
                                 </div>
-                                <p>Altura: ${response.height} cm </p>
+                                <p>Altura: ${(response.height * 10)} cm </p>
+                                <p>Peso: ${(response.weight / 10)} Kg </p>
 						    </div>`);
                         }
                     }

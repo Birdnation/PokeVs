@@ -29,8 +29,8 @@ $(document).ready(function () {
                 $('#imagenPokemon').append('<img src="' + response.sprites.other.dream_world.front_default + '" alt="">');
                 $('#infoPokemon').append('<h3 style="text-align:center"> # ' + response.id +'</h3>')
                 $('#infoPokemon').append('<h3 style="text-align:center"> ' + response.name.toUpperCase() +'</h3>')
-                $('#infoPokemon').append('<h6 style="text-align:center"> Altura: ' + response.height +' cm</h6>')
-                $('#infoPokemon').append('<h6 style="text-align:center"> Peso: ' + response.weight +' g</h6>')
+                $('#infoPokemon').append('<h6 style="text-align:center"> Altura: ' + (response.height * 10) +' cm</h6>')
+                $('#infoPokemon').append('<h6 style="text-align:center"> Peso: ' + (response.weight / 10) +' Kg</h6>')
                 $('#infoPokemon').append('<h6 style="text-align:center"> Experiencia base: ' + response.base_experience +' </h6>')
                 
             }
