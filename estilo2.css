@@ -14,7 +14,7 @@
 
 .imagen-pantalla {
     background: white;
-    width: 40%;
+    width: 35%;
     height: 250px;
     border-radius: 20px;
     border: solid rgb(75, 74, 74) 15px;
@@ -35,13 +35,13 @@
 
 .info-pantalla {
     background: #7cef4d;
-    width: 40%;
+    width: 55%;
     height: 250px;
     border-radius: 20px;
     border: solid rgb(75, 74, 74) 15px;
 }
 .buscador {
-    width: 50%;
+    width: 100%;
     height: 20%;
 }
 button {

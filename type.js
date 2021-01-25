@@ -10,7 +10,7 @@ $.ajax({
                 type: 'GET',
                 url: '//pokeapi.co/api/v2/type/' + i,
                 success: (response) => {
-                    $('#type').append('<option value="' + i +'">' + response.names[4].name + '</option>');
+                    $('#type').append('<option value="' + i +'">' + response.names[4].name.toUpperCase() + '</option>');
                 } 
             })
             
@@ -22,7 +22,7 @@ $.ajax({
 $('select').on('change',(e) => {
     e.preventDefault();
     $('#listPoke').empty();
-    let tipo = $('#type').val();
+    let tipo = $('#type').val().toLowerCase();
     $.ajax({
         type: 'GET',
         url: '//pokeapi.co/api/v2/type/' + tipo,

@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 body{
+	
 	background: url('./asset/img/df4e8ba28f912bf9cdf9fa0dfc196411.png');
-	background-size: cover;
+	background-position: center center;
 	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
 	font-family: 'Press Start 2P', cursive !important;
 }
 
@@ -30,9 +34,13 @@ p{
 	width: 100%;
 	margin:auto;
 	display: block;
-	text-align: center;
 	align-items: center;
   	justify-content: center;
+}
+
+.selectPoke label{
+	text-align: center;
+	width: 100%;
 }
 
 #listPoke{
@@ -57,16 +65,8 @@ p{
 	height: auto;
 }
 
-.col-6{
-	text-align: center !important;
-}
-
-
-.form-control,
-.btn {
-	margin: 20px auto !important;
-	display: block !important;
-	text-align: center !important;
+.row{
+	margin-left: 0 !important;
 }
 
 .card {
@@ -120,3 +120,88 @@ h1 {
 	font-size:200%;
 }
 
+
+span{
+	width: 20vw !important;
+}
+
+b{
+	left:95% !important;
+}
+
+.btn{
+	height: auto;
+}
+
+.col-5{
+	text-align: center;
+}
+
+.btn-menu{
+	margin: 1vw 0 1vw 0;
+}
+
+.btn-menu-movil{
+	margin: 2vw 1vw 2vw 1vw;
+}
+
+.menu-movil{
+	display:none;
+}
+
+.form-group{
+	justify-content: center;
+}
+
+@media (min-height: 900px) {
+	.menu{
+		display: none !important;
+	}
+	.contenido{
+		flex: 0 0 100% !important;
+		max-width: 100% !important;
+	}
+	.form-row{
+		flex-direction: column !important;
+		width: 100%;
+	}
+
+	.col-5{
+		flex:0 0 100%!important;
+		max-width:100%!important;
+	}
+
+	span{
+		width: 40vw !important;
+	}
+	.btn{
+		margin: 2vw 0 2vw 0;
+	}
+
+	.pokevs{
+		justify-content: center;
+		align-content: center;
+		flex-direction: column;
+	}
+	.datos{
+		max-width: 100% !important;
+	}
+
+	.photo1 img, .photo2 img{
+		width: 30%;
+		height: auto;
+	}
+
+	.type1 img, .type2 img{
+		width:20%;
+		height: auto;
+	}
+
+	.menu-movil{
+		display:initial;
+	}
+
+	.btn-menu-movil{
+		margin: 2vw 1vw 2vw 1vw;
+	}
+}

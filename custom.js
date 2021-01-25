@@ -8,11 +8,14 @@
             $('#poke2').append('<option>' + response.name.toUpperCase() + '</option>')
         },
      })
- }
+}
+
+
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
  
- 
- 
- $('.submit1').click( function searchPokemon (event){
+$('.submit1').click( function searchPokemon (event){
 	event.preventDefault();
 	$('.type1').empty();
     $('.description1').empty();
@@ -126,6 +129,8 @@
 			}
 			
 		})
+
+
 
 		$.ajax({
 			type: 'GET',

@@ -1,42 +1,23 @@
-/* $('#search').on('click', (e) =>{
-    $('#imagenGrande').empty();
-    $('#imgPeke1').empty();
-    $('#imgPeke2').empty();
-    $('#desciption').empty();
-    e.preventDefault();
-    let pokemon = $('#pokemon').val().toLowerCase();
-    $.ajax({
-        type: 'GET',
-        url: '//pokeapi.co/api/v2/pokemon/' + pokemon,
-        success:(response)=>{
-            console.log(response);
-            $('.nombre').append(`<h1 class='nombre'>Nombre</h1>`);
-            $('#imagenGrande').append(`<img class='imgPrincipal' src="${response.sprites.other.dream_world.front_default}" alt="">`);
-            $('#imgPeke1').append(`<img src="${response.sprites.front_default}" alt="">`);
-            $('#imgPeke2').append(`<img src="${response.sprites.back_default}" alt="">`);
-        }
-    })
-}); */
-
 $(document).ready(function () {
     
-    for (let i = 1; i<152; i++) {
+    for (let i = 1; i<300; i++) {
         $.ajax({
             type: "GET",
             url: "//pokeapi.co/api/v2/pokemon/" + i,
             dataType: "json",
             crossDomain: true,
             success: function (response) {
-                $("#pokemonElegido").append('<option>' + response.name + '</option>');
+                $("#pokemonElegido").append('<option>' + response.name.toUpperCase() + '</option>');
               
             }
         });
     }
 
+
     
     $("#buscar").click(function (e) { 
         e.preventDefault();
-        var pokemon = $('#pokemonElegido').val();
+        var pokemon = $('#pokemonElegido').val().toLowerCase();
         console.log(pokemon);
         $('#imagenPokemon').empty();
         $('#infoPokemon').empty();
@@ -54,11 +35,9 @@ $(document).ready(function () {
                 
             }
         });
-
-        
     });
+});
 
-
-
-
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
 });
